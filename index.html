@@ -13,6 +13,7 @@
     <meta name="description" content="Надежда Яцута">
     <meta name="keywords" content="Надежда Яцута">
     <link href="./css/main.css" rel="stylesheet">
+    <link href="./css/audio.css" rel="stylesheet">
 </head>
 
 <body class="">
@@ -285,170 +286,175 @@
             </div>
             <section class="page page--main">
 <!-- -- -->
-<!-- 
-                <div class="page-block pb0">
+          <div class="page-block pb0">
+            <div class="banner-list">
+              <div class="container xs-pl0 xs-pr0">
+                <div class="row">
+                  <div class="col-md-6">
+                    <!-- audio -->
                     <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="page-top mb0">
-                                    <div class="page-top__h">новости</div>
-                                    <a class="page-top__sub hidden-xs" href="./news/">все материалы</a>
-                                </div>
+                      <div class="player" style="background-image: url('./img/4.jpg');" data-audio="./audio/1.mpeg">
+                        <!-- <div class="like waves-effect waves-light">
+                            <i class="icon-heart"></i>
+                        </div> -->
+                        <div class="mask"></div>
+                        <ul class="player-info info-one">
+                            <li>Я несла свою беду</li>
+                            <li>Надежда Яцута</li>
+                            <li>2:49</li>
+                        </ul>
+                        <ul class="player-info info-two">
+                            <li>Я несла свою беду</li>
+                            <li>Надежда Яцута</li>
+                            <li><span id="duration"></span><i> / </i>2:49</li>
+                        </ul>
+                        <div class="play-button unchecked">
+                            <i class="icon icon-play">
+                                <svg class="ico ico--play" width="14" height="20">
+                                    <use xlink:href="./img/sprite.svg#ico-play"></use>
+                                </svg>
+                                <svg class="ico ico--close" width="20" height="20">
+                                  <use xlink:href="./img/sprite.svg#ico-close"></use>
+                              </svg>
+                            </i>
+                        </div>
+                        <div class="control-row">
+                            <div class="pause-button">
+                            <i class="icon">
+                                <svg class="ico ico--pause" width="14" height="16">
+                                    <use xlink:href="./img/sprite.svg#ico-pause"></use>
+                                </svg>
+                                <svg class="ico ico--play" width="14" height="20">
+                                  <use xlink:href="./img/sprite.svg#ico-play"></use>
+                              </svg>
+                            </i>
+                            </div>
+                            <div class="seek-field">
+                            <input
+                                id="audioSeekBar"
+                                min="0"
+                                max="334"
+                                step="1"
+                                value="0"
+                                type="range"
+                                oninput="audioSeekBar()"
+                                onchange="this.oninput()"
+                            />
+                            </div>
+                            <div class="volume-icon">
+                            <i class="icon-volume-up">
+                              <svg class="ico ico-state-volume" width="26" height="26">
+                                <use xlink:href="./img/sprite.svg#ico-volume"></use>
+                              </svg>
+                            </i>
+                            </div>
+                            <div class="volume-field">
+                            <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                value="100"
+                                step="1"
+                                oninput="audio.volume = this.value/100"
+                                onchange="this.oninput()"
+                            />
                             </div>
                         </div>
+                        </div>
                     </div>
+                    <!-- /audio -->
+                  </div>
+
+                  <div class="col-md-6">
+                    <!-- audio -->
                     <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12 col-xs-12" data-id="1">
-                                <a class="news-block news-block--lg news-block--main" href="./news/">
-                                    <div class="news-block__img" style="background-image: url(&#39;/upload/resize/640_80__upload_5959021.jpg&#39;)">
-                                    </div>
-                                    <div class="news-block__description">
-                                        <div class="news-block__h">Жившие в&nbsp;Севастополе в&nbsp;годы войны ветераны получат выплаты</div>
-                                    </div>
-                                    <div class="news-block__info">
-                                        <span class="news-block__date">12 февраля 2021</span>
-                                        <div class="news-block__arrow"></div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12" data-id="2">
-                                <a class="news-block  news-block--main" href="./news/stihotvorenie_o_rzhevskom_memoriale/">
-                                    <div class="news-block__img" style="background-image: url(&#39;/upload/resize/640_80__upload_755934368391938.jpg&#39;)">
-                                    </div>
-                                    <div class="news-block__description">
-                                        <div class="news-block__h">Проект о&nbsp;Ржевском мемориале набирает популярность в&nbsp;интернете</div>
-                                    </div>
-                                    <div class="news-block__info">
-                                        <span class="news-block__date">20 октября 2020</span>
-                                        <div class="news-block__arrow"></div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12" data-id="3">
-                                <a class="news-block  news-block--main" href="./news/spasibo_za_nastoyashee/">
-                                    <div class="news-block__img" style="background-image: url(&#39;/upload/resize/640_80__upload_RIAN_2691176.HR.ru.jpg&#39;)">
-                                    </div>
-                                    <div class="news-block__description">
-                                        <div class="news-block__h">Спасибо за&nbsp;настоящее. В&nbsp;Китае почтили память погибших советских солдат</div>
-                                    </div>
-                                    <div class="news-block__info">
-                                        <span class="news-block__date">09 августа 2020</span>
-                                        <div class="news-block__arrow"></div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12" data-id="4">
-                                <a class="news-block  news-block--main" href="./news/pskovskie_volonteri/">
-                                    <div class="news-block__img" style="background-image: url(&#39;/upload/resize/640_80__upload_RIAN_6068106.HR.ru_(1).jpg&#39;)">
-                                    </div>
-                                    <div class="news-block__description">
-                                        <div class="news-block__h">Псковские волонтеры оцифровали 200&nbsp;памятных мест, связанных с&nbsp;Великой Отечественной войной</div>
-                                    </div>
-                                    <div class="news-block__info">
-                                        <span class="news-block__date">08 августа 2020</span>
-                                        <div class="news-block__arrow"></div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12" data-id="5">
-                                <a class="news-block  news-block--main" href="./news/voljskii_rubezh/">
-                                    <div class="news-block__img" style="background-image: url(&#39;/upload/resize/640_80__upload_RIAN_2607420.HR.ru.jpg&#39;)">
-                                    </div>
-                                    <div class="news-block__description">
-                                        <div class="news-block__h">В&nbsp;Тверской области стартовала экспедиция «Волжский рубеж – 2020»</div>
-                                    </div>
-                                    <div class="news-block__info">
-                                        <span class="news-block__date">08 августа 2020</span>
-                                        <div class="news-block__arrow"></div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12" data-id="6">
-                                <a class="news-block  news-block--main" href="./news/alleya_kedrov/">
-                                    <div class="news-block__img" style="background-image: url(&#39;/upload/resize/640_80__upload_RIAN_451387.HR.ru.jpg&#39;)">
-                                    </div>
-                                    <div class="news-block__description">
-                                        <div class="news-block__h">Аллея именных кедров высажена на&nbsp;территории Минспорта РФ&nbsp;в&nbsp;честь спортсменов – героев ВОВ</div>
-                                    </div>
-                                    <div class="news-block__info">
-                                        <span class="news-block__date">06 августа 2020</span>
-                                        <div class="news-block__arrow"></div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12" data-id="7">
-                                <a class="news-block  news-block--main" href="./news/na_dorogah_pobedi/">
-                                    <div class="news-block__img" style="background-image: url(&#39;/upload/resize/640_80__upload_RIAN_5859475.HR.ru.jpg&#39;)">
-                                    </div>
-                                    <div class="news-block__description">
-                                        <div class="news-block__h">На&nbsp;«дорогах Победы» в&nbsp;Петербурге можно будет применить QR-код</div>
-                                    </div>
-                                    <div class="news-block__info">
-                                        <span class="news-block__date">05 августа 2020</span>
-                                        <div class="news-block__arrow"></div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row visible-xs">
-                            <div class="col-md-12 mt30 mb30 text-center">
-                                <a class="page-top__sub sm-ml0" href="./news/">все материалы</a>
-                            </div>
-                        </div>
-                    </div>
+                          <div class="player" style="background-image: url('./img/2.jpg');" data-audio="./audio/2.mpeg">
+                              <!-- <div class="like waves-effect waves-light">
+                                  <i class="icon-heart"></i>
+                              </div> -->
+                              <div class="mask"></div>
+                              <ul class="player-info info-one">
+                                  <li>Я несла свою беду</li>
+                                  <li>Надежда Яцута</li>
+                                  <li>2:49</li>
+                              </ul>
+                              <ul class="player-info info-two">
+                                  <li>Я несла свою беду</li>
+                                  <li>Надежда Яцута</li>
+                                  <li><span id="duration"></span><i> / </i>2:49</li>
+                              </ul>
+                              <div class="play-button unchecked">
+                                  <i class="icon icon-play">
+                                      <svg class="ico ico--play" width="14" height="20">
+                                          <use xlink:href="./img/sprite.svg#ico-play"></use>
+                                      </svg>
+                                      <svg class="ico ico--close" width="20" height="20">
+                                        <use xlink:href="./img/sprite.svg#ico-close"></use>
+                                    </svg>
+                                  </i>
+                              </div>
+                              <div class="control-row">
+                                  <div class="pause-button">
+                                  <i class="icon">
+                                      <svg class="ico ico--pause" width="14" height="16">
+                                          <use xlink:href="./img/sprite.svg#ico-pause"></use>
+                                      </svg>
+                                      <svg class="ico ico--play" width="14" height="20">
+                                        <use xlink:href="./img/sprite.svg#ico-play"></use>
+                                    </svg>
+                                  </i>
+                                  </div>
+                                  <div class="seek-field">
+                                  <input
+                                      id="audioSeekBar"
+                                      min="0"
+                                      max="334"
+                                      step="1"
+                                      value="0"
+                                      type="range"
+                                      oninput="audioSeekBar()"
+                                      onchange="this.oninput()"
+                                  />
+                                  </div>
+                                  <div class="volume-icon">
+                                  <i class="icon-volume-up">
+                                    <svg class="ico ico-state-volume" width="26" height="26">
+                                      <use xlink:href="./img/sprite.svg#ico-volume"></use>
+                                    </svg>
+                                  </i>
+                                  </div>
+                                  <div class="volume-field">
+                                  <input
+                                      type="range"
+                                      min="0"
+                                      max="100"
+                                      value="100"
+                                      step="1"
+                                      oninput="audio.volume = this.value/100"
+                                      onchange="this.oninput()"
+                                  />
+                                  </div>
+                              </div>
+                              </div>
+                          </div>
+                    <!-- /audio -->
+                    <audio
+                      id="audio-player"
+                      ontimeupdate="SeekBar()"
+                      ondurationchange="CreateSeekBar()"
+                      preload="auto"
+                      loop
+                  >
+                      <source id="track"
+                      src="./audio/2.mpeg"
+                      />
+                    </audio>
+                  </div>
                 </div>
-
-                <div class="page-block pb0">
-                    <div class="banner-list">
-                        <div class="container xs-pl0 xs-pr0">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="banner-item banner-item--shadow">
-                                        <div class="banner-item__bg hidden-xs" style="background-image: url(&#39;/upload/resize/640_80__upload_banner_490x328_2.jpg&#39;);"></div>
-                                        <div class="banner-item__bg visible-xs" style="background-image: url(&#39;/upload/resize/640_80__upload_banner_490x328_2.jpg&#39;);"></div>
-
-                                        <div class="row">
-                                            <div class="col-sm-8">
-                                                <div class="banner-item__h">
-                                                    ПИСЬМА С ФРОНТА </div>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <div class="banner-item__txt">
-                                                    Сохраним народную память, запечатленную в письмах! </div>
-                                            </div>
-                                        </div>
-                                        <div class="banner-item__bot">
-                                            <a href="./index2_files/victory/letters/" class="btn btn-white">
-                                                ПОДРОБНЕЕ </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="banner-item banner-item--shadow">
-                                        <div class="banner-item__bg hidden-xs" style="background-image: url(&#39;/upload/resize/640_80__upload_P-75_sait_490x328_fotoalbum_1.jpg&#39;);"></div>
-                                        <div class="banner-item__bg visible-xs" style="background-image: url(&#39;/upload/resize/640_80__upload_P-75_sait_490x328_fotoalbum_1-1.jpg&#39;);"></div>
-                                        <div class="row">
-                                            <div class="col-sm-8">
-                                                <div class="banner-item__h">
-                                                    Домашний фотоальбом</div>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <div class="banner-item__txt">
-                                                    Загрузите фотографии своих ветеранов и расскажите об их фронтовом пути.</div>
-                                            </div>
-                                        </div>
-                                        <div class="banner-item__bot">
-                                            <a href="./victory/photo-album/" class="btn btn-white">ПОДРОБНЕЕ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
--->
-<!-- /-- -->
+              </div>
+            </div>
+          </div>
+          <!-- /6 -->
 
 <!-- -- -->
 <!-- 
@@ -2385,6 +2391,7 @@
     <script src="./js/moduleLetters.js"></script>
     <script src="./js/moduleAlbum.js"></script>
     <script src="./js/common.js"></script>
+    <script src="./js/audio.js"></script>
 </body>
 
 </html>

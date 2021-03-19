@@ -1,15 +1,20 @@
-let audio = document.getElementById('audio-player');
+// const customPlayers = document.querySelectorAll('.custom-audio-player');
+
+// for (let i = 0; i < customPlayers.length; i++) {
+
+//   const audioObj = customPlayers[i].querySelector('.audioObj');
+//    const playButton = document.querySelector('.play-button');
+
+// }
 
 $(document).ready(function () {
   $('.play-button').click(function () {
+    // playButton[i].click(function () {
     let player = $(this).parent();
 
     let track = player.attr('data-audio');
-    // let trackSrc = $('.audio-player').children().attr('src', track);
-    $('#track').attr('src', track);
 
-    // console.log('track=>', track);
-    // console.log('rackSrc=>', trackSrc);
+    $('#track').attr('src', track);
 
     if ($(this).hasClass('unchecked')) {
       $(this)
@@ -17,13 +22,14 @@ $(document).ready(function () {
         .removeClass('play-inactive')
         .removeClass('unchecked');
       player.find('.info-two').addClass('info-active');
-      player.find('.control-row').addClass('audio-bg');
+      // player.find('.control-row').addClass('audio-bg');
       player.find('.pause-button').addClass('scale-animation-active');
       player
         .find(
-          '.pause-button, .seek-field, .volume-icon, .volume-field, .info-two'
+          '.waves-animation-one, .pause-button, .seek-field, .volume-icon, .volume-field, .info-two'
         )
         .show();
+      player.find('.waves-animation-two').hide();
       player
         .find('.pause-button')
         .children('.icon')
@@ -31,9 +37,10 @@ $(document).ready(function () {
         .removeClass('icon-play');
       setTimeout(function () {
         player.find('.info-one').hide();
+        player.find('.player-bar').show();
       }, 400);
-      audio.play();
-      audio.currentTime = 0;
+      // audio.play();
+      // audio.currentTime = 0;
     } else {
       $(this)
         .removeClass('play-active')
@@ -45,7 +52,7 @@ $(document).ready(function () {
         .addClass('icon-pause')
         .removeClass('icon-play');
       player.find('.info-two').removeClass('info-active');
-      player.find('.control-row').removeClass('audio-bg');
+      // player.find('.control-row').removeClass('audio-bg');
       player
         .find(
           '.waves-animation-one, .pause-button, .seek-field, .volume-icon, .volume-field, .info-two'
@@ -54,9 +61,10 @@ $(document).ready(function () {
       player.find('.waves-animation-two').show();
       setTimeout(function () {
         player.find('.info-one').show();
+        player.find('.player-bar').hide();
       }, 150);
-      audio.pause();
-      audio.currentTime = 0;
+      // audio.pause();
+      // audio.currentTime = 0;
     }
 
     setTimeout(function () {
@@ -72,59 +80,9 @@ $(document).ready(function () {
       .children('.icon')
       .toggleClass('icon-pause')
       .toggleClass('icon-play');
-
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
   });
-
-  // $('.play-button').click(function () {
-  //   setTimeout(function () {
-  //     $('.play-button')
-  //       .children('.icon')
-  //       .toggleClass('icon-play')
-  //       .toggleClass('icon-cancel');
-  //   }, 350);
-  // });
-  // $('.like').click(function () {
-  //   $('.icon-heart').toggleClass('like-active');
-  // });
 });
 
-function CreateSeekBar() {
-  let seekbar = document.getElementById('audioSeekBar');
-  seekbar.min = 0;
-  seekbar.max = audio.duration;
-  seekbar.value = 0;
-}
-
-function EndofAudio() {
-  document.getElementById('audioSeekBar').value = 0;
-}
-
-function audioSeekBar() {
-  let seekbar = document.getElementById('audioSeekBar');
-  audio.currentTime = seekbar.value;
-}
-
-function SeekBar() {
-  let seekbar = document.getElementById('audioSeekBar');
-  seekbar.value = audio.currentTime;
-}
-
-audio.addEventListener(
-  'timeupdate',
-  function () {
-    let duration = document.getElementById('duration');
-    let s = parseInt(audio.currentTime % 60);
-    let m = parseInt((audio.currentTime / 60) % 60);
-    duration.innerHTML = m + ':' + s;
-  },
-  false
-);
-//
-// Waves.init();
-// Waves.attach('.play-button', ['waves-button', 'waves-float']);
-// Waves.attach('.pause-button', ['waves-button', 'waves-float']);
+Waves.init();
+Waves.attach('.play-button', ['waves-button', 'waves-float']);
+Waves.attach('.pause-button', ['waves-button', 'waves-float']);

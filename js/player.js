@@ -41,6 +41,7 @@ window.onload = () => {
   for (let i = 0; i < customPlayers.length; i++) {
     const audioObj = customPlayers[i].querySelector('.audioObj');
     const playBttn = customPlayers[i].querySelector('.play-bttn');
+    const $playButton = customPlayers[i].querySelector('.play-button'); 
     const currTimeLbl = customPlayers[i].querySelector('.current-time');
     const rangeSlider = customPlayers[i].querySelector('.range-slider-audio');
     const audioLenLbl = customPlayers[i].querySelectorAll('.audio-length');
@@ -103,12 +104,16 @@ window.onload = () => {
       audioObj.currentTime = 0;
     }
 
-    //===
-    // const playBttn1 = customPlayers[i].querySelectorAll('.play-bttn');
-
-    // for (let i = 0; i < customPlayers.length; i++) {
-    // const playBttn = playBttn1[i].querySelector('.play-bttn');
-    //===
+    $playButton.onclick = (e) => {
+      playBttn.classList.toggle('playing');
+      const playInactive = $playButton.classList.contains('unchecked');
+      if (playBttn.getAttribute('class').includes('playing') && playInactive) {
+        audioObj.play();
+        stopAllAudios(customPlayers[i]);
+      } else {
+        audioObj.pause();
+      }
+    };
 
     playBttn.onclick = () => {
       stopAllAudios(customPlayers[i]);

@@ -2,19 +2,12 @@
 
 // ==============
 
-let $playButton = document.querySelectorAll('.play-button');
+let $playButton = document.querySelectorAll('.play-button--');
 
 if ($playButton.length) {
-  // Ищем на странице class="play-button""
   for (let i = 0; i < $playButton.length; i++) {
     $playButton[i].addEventListener('click', (event) => {
-      // let target = event.eventPhase;
-      let target = event.target;
-      // console.log('target =>', event.target);
-      console.log('event.eventPhase =>', event.eventPhase);
-      // console.log('event.currentTarget =>', event.currentTarget);
-      event.preventDefault();
-      let audioId = target.parentElement.getAttribute('audio-id');
+      let audioId = $playButton[i].parentElement.getAttribute('audio-id');
       console.log('click =>', audioId);
     });
   }
@@ -41,7 +34,7 @@ window.onload = () => {
   for (let i = 0; i < customPlayers.length; i++) {
     const audioObj = customPlayers[i].querySelector('.audioObj');
     const playBttn = customPlayers[i].querySelector('.play-bttn');
-    const $playButton = customPlayers[i].querySelector('.play-button'); 
+    const $playButton = customPlayers[i].querySelector('.play-button'); //
     const currTimeLbl = customPlayers[i].querySelector('.current-time');
     const rangeSlider = customPlayers[i].querySelector('.range-slider-audio');
     const audioLenLbl = customPlayers[i].querySelectorAll('.audio-length');
@@ -104,16 +97,34 @@ window.onload = () => {
       audioObj.currentTime = 0;
     }
 
+    //===
     $playButton.onclick = (e) => {
       playBttn.classList.toggle('playing');
       const playInactive = $playButton.classList.contains('unchecked');
       if (playBttn.getAttribute('class').includes('playing') && playInactive) {
         audioObj.play();
+        console.log('YES');
         stopAllAudios(customPlayers[i]);
       } else {
         audioObj.pause();
+        console.log('NO');
       }
     };
+
+    //===
+
+    // $playButton.onclick = (e) => {
+    //   let target = e.target;
+    //   playBttn.classList.toggle('playing');
+    //   if (
+    //     playBttn.getAttribute('class').includes('playing') &&
+    //     target.classList.contains('play-inactive')
+    //   ) {
+    //     audioObj.play();
+    //   } else {
+    //     audioObj.pause();
+    //   }
+    // };
 
     playBttn.onclick = () => {
       stopAllAudios(customPlayers[i]);
@@ -184,19 +195,19 @@ window.onload = () => {
       }
     };
 
-    audioObj.onended = () => {
-      if (userInteractedWithDOM) {
-        if (i + 1 != customPlayers.length) {
-          customPlayers[i + 1].querySelector('.audioObj').play();
-          customPlayers[i + 1]
-            .querySelector('.play-bttn')
-            .classList.add('playing');
-        } else {
-          customPlayers[0].querySelector('.audioObj').play();
-          customPlayers[0].querySelector('.play-bttn').classList.add('playing');
-        }
-      }
-    };
+    // audioObj.onended = () => {
+    //   if (userInteractedWithDOM) {
+    //     if (i + 1 != customPlayers.length) {
+    //       customPlayers[i + 1].querySelector('.audioObj').play();
+    //       customPlayers[i + 1]
+    //         .querySelector('.play-bttn')
+    //         .classList.add('playing');
+    //     } else {
+    //       customPlayers[0].querySelector('.audioObj').play();
+    //       customPlayers[0].querySelector('.play-bttn').classList.add('playing');
+    //     }
+    //   }
+    // };
 
     audioObj.onloadedmetadata = () => {
       for (let j = 0; j < audioLenLbl.length; j++) {

@@ -202,6 +202,22 @@ $(document).ready(function () {
     }, 500);
   });
 
+  // ======
+
+  let $headerMenuLink = document.querySelectorAll('.header-menu__link');
+  let $headerTog = document.querySelector('.header-tog');
+  let $headerMenu = document.querySelector('.header-menu');
+
+  if ($headerMenuLink.length) {
+    for (let i = 0; i < $headerMenuLink.length; i++) {
+      $headerMenuLink[i].addEventListener('click', (event) => {
+        $headerTog.classList.remove('active');
+        $headerMenu.classList.remove('active');
+      });
+    }
+  }
+  // ======
+
   (function () {
     var $block = $('.js-header-menu-inner'),
       $arrow = $block.find('.js-header-menu-arrow'),

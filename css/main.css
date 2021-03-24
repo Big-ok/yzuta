@@ -12201,3 +12201,44 @@ fieldset[disabled] .btn {
 .btn-icons:hover {
   background-color: #ed2b31;
 }
+
+body {
+  font-family: 'Roboto', Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans',
+    Freesans, sans-serif;
+  line-height: 27px;
+  font-weight: 300;
+  color: rgb(65, 72, 77);
+}
+
+.article__title-h2 {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 35px;
+  color: #000;
+  text-align: center;
+}
+
+.article p {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 30px;
+  color: #454545;
+}
+
+.text-cols-two {
+  column-width: 48%;
+  column-count: 1;
+  column-gap: 4%;
+  background: #fafafa;
+  padding: 20px;
+}
+
+@media screen and (min-width: 600px) {
+  .text-cols-two {
+    column-count: 2;
+  }
+}
+
+#biography {
+  padding-top: 70px;
+}

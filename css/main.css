@@ -12242,3 +12242,13 @@ body {
 #biography {
   padding-top: 70px;
 }
+
+.article__title-h1 {
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 992px) {
+  .article__title-h1 {
+    margin-top: 100px;
+  }
+}

@@ -33,7 +33,18 @@ window.onload = () => {
 
   for (let i = 0; i < customPlayers.length; i++) {
     const audioObj = customPlayers[i].querySelector('.audioObj');
-    const playBttn = customPlayers[i].querySelector('.play-bttn');
+    const $playBttn = customPlayers[i].querySelector('.play-bttn');
+    // const $playBotton = customPlayers[i].querySelector('.play-botton');
+    const $playStart = customPlayers[i].querySelectorAll('.play-start');
+    const $infoOne = customPlayers[i].querySelector('.info-one');
+    const $playerBar = customPlayers[i].querySelector('.player-bar');
+    const $infoTwo = customPlayers[i].querySelector('.info-two');
+    const $wavesAnimationOne = customPlayers[i].querySelector(
+      '.waves-animation-one'
+    );
+    const $wavesAnimationTwo = customPlayers[i].querySelector(
+      '.waves-animation-two'
+    );
     const $playButton = customPlayers[i].querySelector('.play-button'); //
     const currTimeLbl = customPlayers[i].querySelector('.current-time');
     const rangeSlider = customPlayers[i].querySelector('.range-slider-audio');
@@ -97,27 +108,11 @@ window.onload = () => {
       audioObj.currentTime = 0;
     }
 
-    //===
-    $playButton.onclick = (e) => {
-      playBttn.classList.toggle('playing');
-      const playInactive = $playButton.classList.contains('unchecked');
-      if (playBttn.getAttribute('class').includes('playing') && playInactive) {
-        audioObj.play();
-        console.log('YES');
-        stopAllAudios(customPlayers[i]);
-      } else {
-        audioObj.pause();
-        console.log('NO');
-      }
-    };
-
-    //===
-
     // $playButton.onclick = (e) => {
     //   let target = e.target;
-    //   playBttn.classList.toggle('playing');
+    //   $playBttn.classList.toggle('playing');
     //   if (
-    //     playBttn.getAttribute('class').includes('playing') &&
+    //     $playBttn.getAttribute('class').includes('playing') &&
     //     target.classList.contains('play-inactive')
     //   ) {
     //     audioObj.play();
@@ -126,15 +121,74 @@ window.onload = () => {
     //   }
     // };
 
-    playBttn.onclick = () => {
-      stopAllAudios(customPlayers[i]);
-      playBttn.classList.toggle('playing');
-      if (playBttn.getAttribute('class').includes('playing')) {
-        audioObj.play();
-      } else {
-        audioObj.pause();
-      }
-    };
+    //===
+    // play-button unchecked waves-effect waves-button waves-float
+    //===
+
+    //===
+
+    // $playButton.onclick = (e) => {
+    //   playBtt.classList.toggle('playing');
+    //   const playInactive = $playButton.classList.contains('unchecked');
+    //   if ($playBttn.getAttribute('class').includes('playing') && playInactive) {
+    //     audioObj.play();
+    //     console.log('YES');
+    //     stopAllAudios(customPlayers[i]);
+    //   } else {
+    //     audioObj.pause();
+    //     console.log('NO');
+    //   }
+    // };
+
+    //===
+    // for (let j = 0; j < $playBttn.length; j++) {
+    //   $playBttn[j].addEventListener('click', (event) => {
+    //     stopAllAudios(customPlayers[i]);
+    //     $playBttn[j].classList.toggle('playing');
+    //     if ($playBttn[j].getAttribute('class').includes('playing')) {
+    //       audioObj.play();
+    //     } else {
+    //       audioObj.pause();
+    //     }
+    //   });
+    // }
+    //===
+    for (let j = 0; j < $playStart.length; j++) {
+      $playStart[j].onclick = () => {
+        stopAllAudios(customPlayers[i]);
+        $playBttn.classList.toggle('playing');
+        // $playButton.classList.toggle('playing');
+        console.log('$playBttn=>', $playBttn);
+
+        if ($playBttn.getAttribute('class').includes('playing')) {
+          // $playBttn.classList.add('TEST');
+          $playButton.classList.add('play-active');
+          $playButton.classList.remove('play-inactive');
+          // $playBttn.classList.remove('unchecked');
+          $infoTwo.classList.add('info-active');
+          $wavesAnimationOne.style.display = 'block';
+          $wavesAnimationTwo.style.display = 'none';
+          setTimeout(function () {
+            $infoOne.style.display = 'none';
+            $playerBar.style.display = 'block';
+          }, 400);
+
+          audioObj.play();
+        } else {
+          $playButton.classList.remove('play-active');
+          $playButton.classList.add('play-inactive');
+          // $playBttn.classList.add('unchecked');
+          $infoTwo.classList.remove('info-active');
+          $wavesAnimationOne.style.display = 'none';
+          $wavesAnimationTwo.style.display = 'block';
+          setTimeout(function () {
+            $infoOne.style.display = 'block';
+            $playerBar.style.display = 'none';
+          }, 150);
+          audioObj.pause();
+        }
+      };
+    }
 
     // playbackBttn.onclick = () => {
     //   customPlayers[i].querySelector('.playback-option').classList.toggle('list-displayed');
@@ -185,7 +239,7 @@ window.onload = () => {
       );
 
       if (audioObj.currentTime == audioObj.duration) {
-        playBttn.classList.remove('playing');
+        $playBttn.classList.remove('playing');
       }
 
       for (let j = 0; j < audioLenLbl.length; j++) {
@@ -317,6 +371,20 @@ const stopAllAudios = (cPlayer) => {
     if (customPlayer !== cPlayer) {
       customPlayer.querySelector('.audioObj').pause();
       customPlayer.querySelector('.play-bttn').classList.remove('playing');
+      //===
+      customPlayer
+        .querySelector('.play-button')
+        .classList.remove('play-active');
+      customPlayer.querySelector('.play-button').classList.add('play-inactive');
+      customPlayer.querySelector('.info-two').classList.remove('info-active');
+      customPlayer.querySelector('.waves-animation-one').style.display = 'none';
+      customPlayer.querySelector('.waves-animation-two').style.display =
+        'block';
+      setTimeout(function () {
+        customPlayer.querySelector('.info-one').style.display = 'block';
+        customPlayer.querySelector('.player-bar').style.display = 'none';
+      }, 150);
+      //===
     }
   }
 };

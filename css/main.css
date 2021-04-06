@@ -11789,7 +11789,7 @@ fieldset[disabled] .btn {
 
 .page--main {
   position: relative;
-  background: #f2f2f2;
+  background: #fff;
   z-index: 1;
 }
 
@@ -11804,8 +11804,26 @@ fieldset[disabled] .btn {
   background-repeat: no-repeat;
   background-color: #ccc;
   /* background-image: url(../img/bg.jpg); */
-/*   background-image: radial-gradient(circle at top left, #fef6eb, #ccc); */
-  background-image: linear-gradient(to top, #cccccc, #d9d6d8, #e8dfe0, #f6eae6, #fef6eb);
+
+  /* background-image: radial-gradient(circle at top left, #fef6eb, #ccc); */
+
+  background-image: linear-gradient(
+    to top,
+    #cccccc,
+    #d9d6d8,
+    #e8dfe0,
+    #f6eae6,
+    #fef6eb
+  );
+
+  /* background-image: radial-gradient(
+    circle at top left,
+    rgb(174, 184, 236),
+    rgb(92, 107, 192)
+  ); */
+
+  /* background-image: linear-gradient(rgb(92, 107, 192), rgb(174, 184, 236)); */
+
   overflow: hidden;
   z-index: 0;
 }

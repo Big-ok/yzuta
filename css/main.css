@@ -768,7 +768,7 @@
  *
  * Released on: February 22, 2019
  */
-.swiper-container {
+/* .swiper-container {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -1549,7 +1549,7 @@ button.swiper-pagination-bullet {
 
 .swiper-container-coverflow .swiper-wrapper {
   -ms-perspective: 1200px;
-}
+} */
 
 .lazyframe {
   position: relative;
@@ -6390,7 +6390,7 @@ h6,
   font-weight: 500;
   margin: 0 0 15px 0;
 }
-
+/* 
 .wysiwyg {
   font-size: 22px;
   line-height: 28px;
@@ -7008,7 +7008,7 @@ h6,
 
 .wysiwyg .label-table--mobile .label-table__row-wrap:not(:first-child) {
   padding-top: 22px;
-}
+} */
 
 .glory-cities-content-wrapper figure figcaption {
   font-size: 14px;
@@ -9299,6 +9299,7 @@ fieldset[disabled] .btn {
   box-shadow: 10px 0 0 #a33, -10px 0 0 #a33;
 }
 
+/* 
 .slider-arrow {
   position: relative;
   display: inline-block;
@@ -9671,7 +9672,6 @@ fieldset[disabled] .btn {
   font-weight: 600;
   color: #ffffff;
   text-transform: uppercase;
-  /*padding: 0 10px;*/
   box-shadow: 10px 0 0 #a33, -10px 0 0 #a33;
   background: #a33;
   box-decoration-break: clone;
@@ -9843,7 +9843,8 @@ fieldset[disabled] .btn {
     bottom: 24px;
     padding: 0 24px;
   }
-}
+} 
+*/
 
 .share-wrap {
   text-align: right;
